@@ -34,6 +34,8 @@ jobs:
        
   build-and-push:
     runs-on: ubuntu-latest
+    run:
+         working-directory: ./Java_CICD/java_app
     steps:
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
@@ -49,4 +51,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: hassansaeed/java-app-actions:${{ github.sha }}           
+          tags: hassansaeed/java-app-actions:${{ github.sha }}
+          
