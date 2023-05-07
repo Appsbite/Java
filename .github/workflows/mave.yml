@@ -4,7 +4,8 @@ name: End to End CI/CD workflow for Java Applicaton with Maven, Sonar and k8s In
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: 
+      - main
 #   pull_request:
 #     branches: [ $default-branch ]
 
