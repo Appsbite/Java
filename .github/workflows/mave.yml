@@ -32,14 +32,8 @@ jobs:
      - name: maven target # change accordingly
        run: mvn clean install
        
-  build-and-push-DockerImage:
-    needs: build
-    runs-on: ubuntu-latest
-    defaults:
-     run:
-       working-directory: ./Java_CICD/java_app
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag java-actions-cicd:$(date +%s)
+ 
+     - uses: actions/checkout@v3
+     - name: Build the Docker image
+       run: docker build . --file Dockerfile --tag java-actions-cicd:$(date +%s)
          
