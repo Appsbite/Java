@@ -1,0 +1,28 @@
+# Github ACtions
+
+name: End to End CI/CD workflow for Java Applicaton with Maven, Sonar and k8s Intergation
+
+on:
+  push:
+    branches: [ $default-branch ]
+#   pull_request:
+#     branches: [ $default-branch ]
+
+jobs:
+  build:
+     runs-on: ubuntu-latest 
+     defaults:
+      run:
+         working-directory: ./Java_CICD/java_app
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+     
+       
+     - name: Java jdk setup
+       uses: actions/setup-java@v1
+       with:
+          java-version: 11
+      
+     - name: maven target # change accordingly
+       run: mvn clean install
