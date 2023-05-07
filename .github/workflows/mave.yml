@@ -32,7 +32,8 @@ jobs:
      - name: maven target # change accordingly
        run: mvn clean install
        
-  build-and-push:
+  build-and-push-Docker-Image:
+    needs: build
     runs-on: ubuntu-latest
     defaults:
      run:
@@ -53,4 +54,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: hassansaeed/java-app-actions:${{ github.sha }}
-          
+         
